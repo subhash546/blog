@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Krify Blogs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/blog.css' %}" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+    <div class="container">
+          {% for cat in categories %}
+            
+         
+        <a class="navbar-brand font-weight-bold" href="{% url 'post_by_category' cat.id %}">
+            <span class="text-primary">{{cat}}</span>
+        </a>
+         {% endfor %}
+
+        <div class="ml-auto">
+            <a href="#" class="btn btn-outline-primary btn-sm">signup</a>
+            <a href="#" class="btn btn-primary btn-sm ml-2">Register</a>
+        </div>
+    </div>
+</nav>
+
+{% block content %}
+
+{% endblock content %}
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-dark text-white text-center mt-5 p-4">
+    <p class="mb-1">
+        © 2025 Krify Software Technologies
+    </p>
+    <small>
+        Engineering · Innovation · Growth
+    </small>
+</footer>
+
+</body>
+</html>
