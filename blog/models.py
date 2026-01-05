@@ -36,7 +36,33 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
    
-   
+
+
+class About(models.Model):
+    about_header=models.CharField(max_length=100)
+    about_body=models.TextField(max_length=2000)
+    created_at=models.DateTimeField(auto_now_add=True)
+    updated_at=models.DateTimeField(auto_now=True)
+    
+    
+    class Meta:
+        verbose_name_plural="About"
+    
+    def __str__(self):
+        return self.about_header
+    
+    
+class Sociallinks(models.Model):
+    platform_name=models.CharField(max_length=100)
+    link=models.URLField(max_length=200,unique=True)
+    
+    class Meta:
+        verbose_name_plural="social"
+    
+    def __str__(self):
+        return self.platform_name
+    
+    
    
     
     

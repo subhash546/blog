@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category,Blog
+from .models import Category,Blog,About,Sociallinks
 
 # Register your models here.
 
@@ -17,3 +17,17 @@ class BlogModel(admin.ModelAdmin):
 
 admin.site.register(Category)
 admin.site.register(Blog,BlogModel)
+
+class AboutModel(admin.ModelAdmin):
+    def has_add_permission(self, request):
+        about =About.objects.count()
+        if about >=1:
+            return False
+        return True
+    
+
+
+
+
+admin.site.register(About,AboutModel)
+admin.site.register(Sociallinks)
