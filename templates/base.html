@@ -1,59 +1,117 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Krify Blogs</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Bootstrap -->
-    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Custom CSS -->
-    <link href="{% static 'css/blog.css' %}" rel="stylesheet">
-</head>
+    <link href="{% static 'css/blog.css' %}" rel="stylesheet" />
+  </head>
 
-<body class="bg-light">
+  <body class="bg-light">
+    <!-- ================= HEADER ================= -->
+    <header class="sticky-top">
+      <!-- TOP BAR -->
+      <nav class="navbar navbar-light bg-white border-bottom">
+        <div
+          class="container d-flex justify-content-between align-items-center"
+        >
+          <!-- Logo -->
+          <a href="/" class="navbar-brand font-weight-bold text-primary">
+            Krify Blogs
+          </a>
 
-<!-- ================= NAVBAR ================= -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
-    <div class="container">
-          {% for cat in categories %}
-            
-         
-        <a class="navbar-brand font-weight-bold" href="{% url 'post_by_category' cat.id %}">
-            <span class="text-primary">{{cat}}</span>
-        </a>
-         {% endfor %}
-           
-                <form action="{% url 'search' %}" method="GET" class="d-flex">
-                        <input class="form-control" type="text" name="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                        <button type="submit" class="btn btn-warning" id="button-search" type="button">Go!</button>
-                    </div>
-                </form>
+          <!-- Right Actions -->
+          <div class="d-flex align-items-center">
+            <!-- Desktop Search -->
+            <form
+              action="{% url 'search' %}"
+              method="GET"
+              class="d-none d-md-flex mr-3"
+            >
+              <div class="input-group input-group-sm">
+                <input
+                  type="search"
+                  name="text"
+                  class="form-control"
+                  placeholder="Search blogs..."
+                />
+                <div class="input-group-append">
+                  <button class="btn btn-warning">Search</button>
+                </div>
+              </div>
+            </form>
+
+            <!-- Auth -->
+            <a href="#" class="btn btn-outline-primary btn-sm mr-2">Login</a>
+            <a href="#" class="btn btn-primary btn-sm">Register</a>
+          </div>
         </div>
+      </nav>
 
-        <div class="ml-auto">
-            <a href="#" class="btn btn-outline-primary btn-sm">signup</a>
-            <a href="#" class="btn btn-primary btn-sm ml-2">Register</a>
+      <!-- CATEGORY BAR -->
+      <div class="bg-white border-bottom">
+        <div class="container">
+          <ul
+            class="nav flex-wrap py-2 justify-content-center justify-content-md-start"
+          >
+            {% for cat in categories %}
+            <li class="nav-item">
+              <a
+                class="nav-link px-3 text-dark font-weight-bold"
+                href="{% url 'post_by_category' cat.id %}"
+              >
+                {{ cat }}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
         </div>
+      </div>
+    </header>
+
+    <!-- MOBILE SEARCH -->
+    <div class="container d-md-none my-3">
+      <form action="{% url 'search' %}" method="GET">
+        <div class="input-group input-group-sm">
+          <input
+            type="search"
+            name="text"
+            class="form-control"
+            placeholder="Search blogs..."
+          />
+          <div class="input-group-append">
+            <button class="btn btn-warning">Search</button>
+          </div>
+        </div>
+      </form>
     </div>
-</nav>
 
-{% block content %}
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="container my-4">
+      {% block content %} {% endblock content %}
+    </main>
 
-{% endblock content %}
-
-<!-- ================= FOOTER ================= -->
-<footer class="bg-dark text-white text-center mt-5 p-4">
-    <p class="mb-1">
-        © 2025 Krify Software Technologies
-    </p>
-    <small>
-        Engineering · Innovation · Growth
-    </small>
-</footer>
-
-</body>
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-dark text-white mt-5">
+      <div class="container py-4 text-center">
+        <p class="mb-1 text-primary">© 2025 Krify Software Technologies</p>
+        <small class="text"> Engineering · Innovation · Growth </small>
+      </div>
+    </footer>
+  </body>
 </html>

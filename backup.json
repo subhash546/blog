@@ -121,8 +121,3 @@
     "updated_at": "2026-01-03T03:36:31.854Z"
   }
 },
-{
-  "model": "blog.blog",
-  "pk": 5,
-  "fields": {
-    "title": 

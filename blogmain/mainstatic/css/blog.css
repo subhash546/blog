@@ -1,0 +1,90 @@
+:root {
+  --primary: #f97316;
+  --dark: #1c1917;  
+  --muted: #f1edea;
+  --bg: #f4f5f5;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+}
+
+.navbar-brand {
+  color: var(--dark) !important;
+}
+
+.nav-link {
+  color: var(--muted);
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+/* ================= BRAND ================= */
+.navbar-brand {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary) !important;
+  letter-spacing: 0.3px;
+}
+
+/* ================= NAV LINKS ================= */
+.nav-link {
+  color: var(--dark);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+/* ================= SEARCH ================= */
+input.form-control {
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+/* ================= BUTTONS ================= */
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background-color: #163fb3;
+  border-color: #163fb3;
+}
+
+.btn-warning {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+  color: #000;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+/* ================= CATEGORY BAR ================= */
+.bg-white.border-bottom {
+  background-color: #ffffff;
+}
+
+/* ================= CONTENT ================= */
+main {
+  min-height: 70vh;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+p {
+  color: #444;
+  font-size: 0.95rem;
+}
+

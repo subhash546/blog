@@ -1,0 +1,38 @@
+
+/* Category hover underline effect */
+.category-link {
+    position: relative;
+    font-weight: 500;
+    color: #333 !important;
+    transition: color 0.2s ease;
+}
+
+.category-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: 4px;
+    background-color: #007bff;
+    transition: width 0.3s ease;
+}
+
+.category-link:hover {
+    color: #007bff !important;
+}
+
+.category-link:hover::after {
+    width: 100%;
+}
+
+/* Search input smooth */
+.form-control {
+    border-radius: 0.25rem;
+}
+
+/* Navbar brand */
+.navbar-brand {
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+}
