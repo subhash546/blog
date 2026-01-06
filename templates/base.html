@@ -26,6 +26,13 @@
             <span class="text-primary">{{cat}}</span>
         </a>
          {% endfor %}
+           
+                <form action="{% url 'search' %}" method="GET" class="d-flex">
+                        <input class="form-control" type="text" name="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                        <button type="submit" class="btn btn-warning" id="button-search" type="button">Go!</button>
+                    </div>
+                </form>
+        </div>
 
         <div class="ml-auto">
             <a href="#" class="btn btn-outline-primary btn-sm">signup</a>

@@ -1,0 +1,128 @@
+[
+{
+  "model": "blog.category",
+  "pk": 1,
+  "fields": {
+    "category_name": "sports",
+    "create_at": "2025-12-31T02:39:12.502Z",
+    "update_at": "2025-12-31T02:39:12.502Z"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 2,
+  "fields": {
+    "category_name": "android",
+    "create_at": "2025-12-31T02:39:23.366Z",
+    "update_at": "2025-12-31T02:39:23.366Z"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 3,
+  "fields": {
+    "category_name": "backend",
+    "create_at": "2025-12-31T02:39:29.818Z",
+    "update_at": "2025-12-31T02:39:29.818Z"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 4,
+  "fields": {
+    "category_name": "Python",
+    "create_at": "2026-01-03T02:39:43.312Z",
+    "update_at": "2026-01-03T02:39:51.000Z"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 5,
+  "fields": {
+    "category_name": "News & Updates",
+    "create_at": "2026-01-03T02:40:06.780Z",
+    "update_at": "2026-01-03T02:40:06.780Z"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 6,
+  "fields": {
+    "category_name": "DevOps",
+    "create_at": "2026-01-03T02:40:17.703Z",
+    "update_at": "2026-01-03T02:40:17.703Z"
+  }
+},
+{
+  "model": "blog.blog",
+  "pk": 1,
+  "fields": {
+    "title": "testing",
+    "slug": "testing",
+    "category": 1,
+    "author": 1,
+    "featured_img": "upload/2026/01/01/airport.png",
+    "short_description": "these is the testing",
+    "blog_body": "testing",
+    "status": 1,
+    "is_featured": true,
+    "created_at": "2026-01-01T05:10:40.843Z",
+    "updated_at": "2026-01-03T03:46:13.616Z"
+  }
+},
+{
+  "model": "blog.blog",
+  "pk": 2,
+  "fields": {
+    "title": "Happy Newyear",
+    "slug": "happy-newyear",
+    "category": 1,
+    "author": 1,
+    "featured_img": "upload/2026/01/03/airport.png",
+    "short_description": "these is the testing",
+    "blog_body": "thesisgjnslgs",
+    "status": 1,
+    "is_featured": false,
+    "created_at": "2026-01-03T02:32:53.941Z",
+    "updated_at": "2026-01-03T03:59:19.047Z"
+  }
+},
+{
+  "model": "blog.blog",
+  "pk": 3,
+  "fields": {
+    "title": "Getting Started with Django Admin",
+    "slug": "getting-started-with-django-admin",
+    "category": 4,
+    "author": 1,
+    "featured_img": "upload/2026/01/03/software-developing-team.avif",
+    "short_description": "Django Admin is a powerful built-in feature that helps developers manage application data easily without writing custom dashboards.",
+    "blog_body": "Django Admin is a powerful built-in feature that helps developers manage application data easily without writing custom dashboards.",
+    "status": 1,
+    "is_featured": true,
+    "created_at": "2026-01-03T02:41:22.607Z",
+    "updated_at": "2026-01-03T03:35:15.971Z"
+  }
+},
+{
+  "model": "blog.blog",
+  "pk": 4,
+  "fields": {
+    "title": "Kotlin vs Java for Android Development",
+    "slug": "kotlin-vs-java-for-android-development",
+    "category": 2,
+    "author": 1,
+    "featured_img": "upload/2026/01/03/cloudcomputing_banner.jpg",
+    "short_description": "Kotlin vs Java for Android Development",
+    "blog_body": "Kotlin vs Java for Android Development",
+    "status": 1,
+    "is_featured": true,
+    "created_at": "2026-01-03T02:42:01.141Z",
+    "updated_at": "2026-01-03T03:36:31.854Z"
+  }
+},
+{
+  "model": "blog.blog",
+  "pk": 5,
+  "fields": {
+    "title": 

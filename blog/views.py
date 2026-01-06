@@ -25,3 +25,15 @@ def singleBlog(request,slug):
     }
     return render(request,"singleblog.html",context)
 
+
+
+def search(request):
+    query=request.GET.get('text')
+    posts=Blog.objects.filter(title__icontains=query,status=1)
+    context={
+        'posts':posts,
+        'query':query
+    }
+    return render(request,"search.html",context)
+    
+
