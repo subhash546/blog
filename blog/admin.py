@@ -8,7 +8,7 @@ class BlogModel(admin.ModelAdmin):
         'slug':('title',)
     }
     
-    list_display=('title','category','author','is_featured','created_at')
+    list_display=('title','category','author','is_featured','created_at','updated_at')
     search_fields=('id','title')
     list_editable=('is_featured',)
     

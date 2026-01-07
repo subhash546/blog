@@ -159,7 +159,8 @@
             <ul class="list-unstyled mb-0">
                 {% for category in categories %}
                 <li class="mb-1">
-                    <a href="#" class="text-primary font-weight-bold">
+                    
+                    <a href="{% url 'post_by_category' category.id %}" class="text-primary font-weight-bold">
                         {{ category}}
                     </a>
                 </li>
