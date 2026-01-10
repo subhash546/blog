@@ -57,11 +57,30 @@
               </div>
             </form>
 
+            {% if messages %} {% for message in messages %}
+            <p style="color: red">{{ message }}</p>
+            {% endfor %} {% endif %}
+
             <!-- Auth -->
-            <a href="#" class="btn btn-outline-primary btn-sm mr-2">Login</a>
+            {% if user.is_authenticated %}
+
+            <span>You login as {{user}}</span>
+            &emsp;
+            <a href="{% url 'logout' %}" class="btn btn-primary btn-sm"
+              >Logout</a
+            >
+
+            {% else %}
+            <a
+              href="{%url 'login' %}"
+              class="btn btn-outline-primary btn-sm mr-2"
+              >Login</a
+            >
             <a href="{% url 'register' %}" class="btn btn-primary btn-sm"
               >Register</a
             >
+
+            {% endif %}
           </div>
         </div>
       </nav>
