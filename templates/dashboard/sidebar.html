@@ -1,0 +1,14 @@
+<div class="nav flex-column nav-pills bg-light" aria-orientation="vertical">
+  <a
+    href="{% url 'dashboard' %}"
+    class="nav-links text-dark {% if '/dashboard' == request.path %}bg-warning {% endif %}mb-1 p-2"
+    >Dashboard</a
+  >
+  <a
+    href="{% url 'category' %}"
+    class="nav-links text-dark {% if '/dashboard/category' == request.path %}bg-warning {% endif %}mb-1 p-2"
+    >Categories</a
+  >
+  <a href="" class="nav-links text-dark mb-1 p-2">Posts</a>
+  <a href="" class="nav-links text-dark mb-1 p-2">Logout</a>
+</div>

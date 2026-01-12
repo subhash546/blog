@@ -64,7 +64,7 @@
             <!-- Auth -->
             {% if user.is_authenticated %}
 
-            <span>You login as {{user}}</span>
+            <span><a href="{% url 'dashboard' %}">Dashboard</a></span>
             &emsp;
             <a href="{% url 'logout' %}" class="btn btn-primary btn-sm"
               >Logout</a
