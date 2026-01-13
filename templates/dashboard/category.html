@@ -3,28 +3,46 @@
 <div class="row">
   <div class="col-md-3">{% include 'dashboard/sidebar.html' %}</div>
   <div class="col-md-9">
-    <div class="row">
-      <div class="col">
-        <div class="card border-default mb-3">
-          <div class="card-header text-center text-uppercase font-weight-bold">
-            All Categories
+    <h2>All Categories</h2>
+    <a href="{% url 'Addcategory' %}">
+    <button
+      class="btn text-white bg-dark m-2"
+      style="width: 100px; float: right"
+    >
+      Add
+    </button>
+    </a>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">S.no</th>
+          <th scope="col">All Categories</th>
+          <th scope="col">created at</th>
+          <th scope="col">updated at</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for cat in categories %}
+
+        <tr>
+          <th scope="row">{{forloop.counter}}</th>
+          <td>{{cat}}</td>
+          <td>{{cat.create_at}}</td>
+          <td>{{cat.update_at}}</td>
+          <div class="d-flex gap-3">
+            <td>
+              <a href=""
+                ><i class="fa-regular fa-pen-to-square text-success"></i
+              ></a>
+              <a href=""><i class="fas fa-trash text-danger"></i></a>
+            </td>
           </div>
-          <div class="card-body text-dark">
-            <div class="card-title text-center">{{categories_count}}</div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card border-default mb-3">
-          <div class="card-header text-center text-uppercase font-weight-bold">
-            All POsts
-          </div>
-          <div class="card-body text-dark">
-            <div class="card-title text-center">{{blogs_count}}</div>
-          </div>
-        </div>
-      </div>
-    </div>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </div>
 </div>
 
