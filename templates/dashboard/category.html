@@ -33,10 +33,10 @@
           <td>{{cat.update_at}}</td>
           <div class="d-flex gap-3">
             <td>
-              <a href=""
+              <a href="{% url 'Editcategory' cat.id %}"
                 ><i class="fa-regular fa-pen-to-square text-success"></i
               ></a>
-              <a href=""><i class="fas fa-trash text-danger"></i></a>
+              <a href="{% url 'deletecategory' cat.id %}"><i class="fas fa-trash text-danger"></i></a>
             </td>
           </div>
         </tr>
