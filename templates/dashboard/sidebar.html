@@ -5,10 +5,19 @@
     >Dashboard</a
   >
   <a
+    href="{% url 'users' %}"
+    class="nav-links text-dark {% if '/users' in request.path %}bg-warning {% endif %}mb-1 p-2"
+    >Users</a
+  >
+  <a
     href="{% url 'category' %}"
-    class="nav-links text-dark {% if '/dashboard/category' == request.path %}bg-warning {% endif %}mb-1 p-2"
+    class="nav-links text-dark {% if '/category' in request.path %}bg-warning {% endif %}mb-1 p-2"
     >Categories</a
   >
-  <a href="" class="nav-links text-dark mb-1 p-2">Posts</a>
+  <a
+    href="{% url 'posts' %}"
+    class="nav-links text-dark {% if '/posts' in request.path %}bg-warning {% endif %}mb-1 p-2"
+    >Posts</a
+  >
   <a href="" class="nav-links text-dark mb-1 p-2">Logout</a>
 </div>
