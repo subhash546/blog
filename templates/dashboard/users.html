@@ -3,8 +3,10 @@
 <div class="row">
   <div class="col-md-3">{% include 'dashboard/sidebar.html' %}</div>
   <div class="col-md-9">
+    {% if perms.auth.view_user %}
+
     <h2>All Users</h2>
-    <a href="">
+    <a href="{% url 'adduser' %}">
       <button
         class="btn text-white bg-dark m-2"
         style="width: 100px; float: right"
@@ -17,45 +19,65 @@
       <thead>
         <tr>
           <th scope="col">S.no</th>
-          <th scope="col">title</th>
-          <th scope="col">category</th>
-          <th scope="col">Author</th>
-          <th scope="col">is_featured</th>
-          <th scope="col">created_at</th>
-          <th scope="col">updated_at</th>
-          <th scope="col">Action</th>
+          <th scope="col">Fullname</th>
+          <th scope="col">username</th>
+          <th scope="col">Email address</th>
+          <th scope="col">Active</th>
+          <th scope="col">Staff status</th>
+          <th scope="col">Superuser status</th>
+          <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
-        {% for user in user %}
-
+        {% for user in users %}
         <tr>
-          <th scope="row">{{forloop.counter}}</th>
-          <td>{{user.username}}</td>
-          <td>{{post.category}}</td>
-          <td>{{post.author}}</td>
-          <td>{% if post.is_featured %}
+          <td>{{forloop.counter}}</td>
+          <td>{{user.first_name}}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            {% if user.is_active %}
 
             <i class="fas fa-check text-success"></i>
-          {% else %}
-            <i class="fas fa-times text-danger">
-          {% endif %}</td>
-          <td>{{post.created_at}}</td>
-          <td>{{post.updated_at}}</td>
+
+            {% else %}
+            <i class="fas fa-times text-danger"></i>
+
+            {% endif %}
+          </td>
+
+          <td>
+            {% if user.is_staff %}
+            <i class="fas fa-check text-success"></i>
+            {% else %}
+            <i class="fas fa-times text-danger"></i>
+            {% endif %}
+          </td>
+          <td>
+            {% if user.is_superuser %}
+            <i class="fas fa-check text-success"></i>
+
+            {% else %}
+            <i class="fas fa-times text-danger"></i>
+
+            {% endif %}
+          </td>
           <div class="d-flex gap-3">
             <td>
-              <a href=""
+              <a href="{% url 'edituser' user.id %}"
                 ><i class="fa-regular fa-pen-to-square text-success"></i
               ></a>
-              <a href=""
-                ><i class="fas fa-trash text-danger"></i
-              ></a>
+              <a href=""><i class="fas fa-trash text-danger"></i></a>
             </td>
           </div>
         </tr>
         {% endfor %}
       </tbody>
     </table>
+    {% else %}
+    <h3>You dont have a permissions to access the user table</h3>
+
+    {% endif %}
   </div>
 </div>
 

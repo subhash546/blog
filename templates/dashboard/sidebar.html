@@ -4,11 +4,16 @@
     class="nav-links text-dark {% if '/dashboard' == request.path %}bg-warning {% endif %}mb-1 p-2"
     >Dashboard</a
   >
+
+  {% if perms.auth.view_user %}
   <a
     href="{% url 'users' %}"
     class="nav-links text-dark {% if '/users' in request.path %}bg-warning {% endif %}mb-1 p-2"
     >Users</a
   >
+
+  {% else %} {% endif %}
+
   <a
     href="{% url 'category' %}"
     class="nav-links text-dark {% if '/category' in request.path %}bg-warning {% endif %}mb-1 p-2"

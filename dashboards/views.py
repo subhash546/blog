@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from blog.models import Blog,Category
 
-from .forms import CategoryForm,PostForm
+from .forms import CategoryForm,PostForm,UserForm
 
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
@@ -107,8 +107,9 @@ def editpost(request,pk):
             post.slug= f"{post.slug}-{post.id}"
             post.save(update_fields=['slug'])
             return redirect("posts") 
-            
-    form =PostForm(instance=post) 
+    else:
+                
+     form =PostForm(instance=post) 
     context={
       'form':form,
       'post':post
@@ -123,9 +124,41 @@ def deletepost(request,pk):
 
 
 def users(request):
-    user= User.objects.all()
+    users= User.objects.all()
     context={
-        "user":user
+        "users":users
+    }
+    return render(request,"dashboard/users.html",context)
+
+
+def adduser(request):
+    if request.method == "POST":
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("users")
+
+    else:
+        form = UserForm()
+
+    return render(request, "dashboard/adduser.html", {"form": form})
+
+
+def edituser(request,pk):
+    subhash=get_object_or_404(User,pk=pk)
+    if request.method == "POST":
+        form=UserForm(request.POST,instance=subhash)
+        if form.is_valid():
+            form.save()
+            return redirect ("users")
+        else:
+            print(form.errors)
+    else:
+    
+     form=UserForm(instance=subhash)
+    context={
+        "form":form,
+        "users":subhash
     }
     
-    return render(request,"dashboard/users.html",context)
+    return render(request,"dashboard/edituser.html",context)
