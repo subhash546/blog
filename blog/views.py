@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render,redirect
 
-from .models import Blog,Category
+from .models import Blog,Category,Comment
 from .form import RegisterForm
 
 from django.db.models import Q
@@ -9,6 +9,7 @@ from django.contrib.auth.forms import AuthenticationForm
 
 from django.contrib import auth 
 from django.contrib import messages
+from django.shortcuts import HttpResponseRedirect
 
 # Create your views here.
 
@@ -28,8 +29,19 @@ def postby_category(request,category_id):
 
 def singleBlog(request,slug):
     singleBlog=get_object_or_404(Blog,slug=slug,status=1)
+    if request.method == "POST":
+        comment=Comment()
+        comment.user=request.user
+        comment.blog=singleBlog
+        comment.comment=request.POST['comment']
+        comment.save()
+        return HttpResponseRedirect(request.path)
+    comment= Comment.objects.filter(blog=singleBlog)
+    counter=Comment.objects.filter(blog=singleBlog).count()
     context={
-        'singleBlog':singleBlog
+        'singleBlog':singleBlog,
+        'comment':comment,
+        "counter":counter
     }
     return render(request,"singleblog.html",context)
 

@@ -34,6 +34,56 @@
         <section class="mb-5">
           <p class="fs-5 mb-4">{{singleBlog.blog_body}}</p>
         </section>
+        <section mb="5">
+          <h3>Comments ({{counter}})</h3>
+        </section>
+
+        <section mb="5">
+          {% if comment %} {% for item in comment %}
+          <div class="card mb-4 p-3">
+            <div class="card-body">
+              <p class="card-text">{{item.comment}}</p>
+              <span>{{item.user }} {{item.created_at | timesince}} ago</span>
+            </div>
+          </div>
+          {% endfor %} {% else %}
+          <h3>No Comments</h3>
+
+          {% endif %}
+        </section>
+        {% if user.is_authenticated %}
+
+        <section class="mt-4">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title mb-3">Leave a Comment</h5>
+
+              <form method="POST">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                  <textarea
+                    name="comment"
+                    class="form-control"
+                    rows="4"
+                    placeholder="Write your comment here..."
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="text-end">
+                  <button
+                    type="submit"
+                    class="btn btn-success px-4 rounded-pill"
+                  >
+                    Post Comment
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+        {% endif %}
       </article>
     </div>
     <!-- Side widgets-->

@@ -67,7 +67,9 @@
               <a href="{% url 'edituser' user.id %}"
                 ><i class="fa-regular fa-pen-to-square text-success"></i
               ></a>
-              <a href=""><i class="fas fa-trash text-danger"></i></a>
+              <a href="{% url 'deleteuser' user.id %}"
+                ><i class="fas fa-trash text-danger"></i
+              ></a>
             </td>
           </div>
         </tr>

@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import dashboard,category,categoryadd,categoryEdit,categorydelete,posts,addposts,deletepost,editpost,users,adduser,edituser
+from .views import dashboard,category,categoryadd,categoryEdit,categorydelete,posts,addposts,deletepost,editpost,users,adduser,edituser,deleteuser
 
 urlpatterns=[
     path('',dashboard,name="dashboard"),
@@ -18,6 +18,7 @@ urlpatterns=[
     #users
     path('/users',users,name="users"),
     path('/add/users',adduser,name="adduser"),
-    path('/edit/users/<int:pk>/',edituser,name="edituser")
+    path('/edit/users/<int:pk>/',edituser,name="edituser"),
+    path('/delete/users/<int:pk>/',deleteuser,name="deleteuser")
     
 ]

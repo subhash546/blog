@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from blog.models import Blog,Category
 
-from .forms import CategoryForm,PostForm,UserForm
+from .forms import CategoryForm,PostForm,UserForm,EditUserForm
 
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
@@ -147,7 +147,7 @@ def adduser(request):
 def edituser(request,pk):
     subhash=get_object_or_404(User,pk=pk)
     if request.method == "POST":
-        form=UserForm(request.POST,instance=subhash)
+        form=EditUserForm(request.POST,instance=subhash)
         if form.is_valid():
             form.save()
             return redirect ("users")
@@ -155,10 +155,16 @@ def edituser(request,pk):
             print(form.errors)
     else:
     
-     form=UserForm(instance=subhash)
+     form=EditUserForm(instance=subhash)
     context={
         "form":form,
         "users":subhash
     }
     
     return render(request,"dashboard/edituser.html",context)
+
+
+def deleteuser(request,pk):
+    user=get_object_or_404(User,pk=pk)
+    user.delete()
+    return redirect("users")

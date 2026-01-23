@@ -4,7 +4,7 @@ from blog.models import Category,Blog,About
 
 from django.contrib.auth.decorators import login_required
 
-@login_required
+
 def home(request):
    
     featured_posts=Blog.objects.filter(is_featured=True,status=1).order_by('updated_at')

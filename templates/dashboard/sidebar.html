@@ -24,5 +24,9 @@
     class="nav-links text-dark {% if '/posts' in request.path %}bg-warning {% endif %}mb-1 p-2"
     >Posts</a
   >
-  <a href="" class="nav-links text-dark mb-1 p-2">Logout</a>
+  <a
+    href="{% url 'logout' %}"
+    class="nav-links text-dark {% if '/logout' in request.path %}bg-warning {% endif %}mb-1 p-2"
+    >Logout</a
+  >
 </div>
